@@ -8,20 +8,11 @@ datasource db {
 }
 
 model users {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   name      String   @db.VarChar(255)
   email     String   @unique(map: "email") @db.VarChar(255)
   address   String?  @db.VarChar(255)
   password  String?  @db.VarChar(255)
   createdAt DateTime @default(now()) @db.Timestamp(0)
   updatedAt DateTime @default(now()) @db.Timestamp(0)
-}
-
-model book{
-  id       Int @id @default(autoincrement())
-  nameBook String @db.VarChar(255)
-  typeBook String @db.VarChar(255)
-  price    String @db.VarChar(255)
-  createdAt DateTime @default(now()) @db.Timestamp()
-  updateAt DateTime @default(now()) @db.Timestamp()
 }
